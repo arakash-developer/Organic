@@ -1,14 +1,16 @@
 import React, { useEffect } from 'react'
 
 const App = () => {
-  useEffect(()=>{
-    let getdata = async() =>{
-      let response = await fetch('https://dummyjson.com/products');
-      console.log(response);
+  useEffect(() => {
+    let getData = async () => {
+      let blobs = await fetch("https://techstorevercelapp.vercel.app/akash/api/products");
+      let res = await blobs.json();
+      let newdata = await res.data.products;
+      console.log(newdata);
       
     }
-    getdata();
-  },[])
+    getData();
+  }, [])
   return (
     <div>
       
